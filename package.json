@@ -1,0 +1,67 @@
+{
+  "name": "error-sound-effects",
+  "displayName": "Terminal Error Sound Effects",
+  "description": "Plays selected sound when terminal command fails",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+  "configuration": {
+    "type": "object",
+    "title": "Terminal Error Sound Settings",
+    "properties": {
+      "soundEffects.terminalErrorSound": {
+        "type": "string",
+        "default": "rooster_scream.mp3",
+        "enum": [
+          "chala_ja_bhosadike.mp3",
+          "glup_glup_glup.mp3",
+          "henta_ahh.mp3",
+          "maayi_ke_chodum.mp3",
+          "rooster_scream.mp3",
+          "ye_le_bhncod.mp3"
+        ],
+        "description": "Select the sound that plays when terminal shows an error"
+      },
+      "soundEffects.volume": {
+        "type": "number",
+        "default": 0.7,
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Control sound volume (0 to 1)"
+      },
+      "soundEffects.cooldown": {
+        "type": "number",
+        "default": 3000,
+        "description": "Cooldown time in milliseconds between sounds"
+      }
+    }
+  }
+},
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.56.1",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
