@@ -1,3 +1,5 @@
+![Downloads](https://img.shields.io/github/downloads/prathmesh2507/error-sound-effects/total)
+
 # Terminal Error Sound Effects 🔊
 
 Plays a custom sound when a terminal command fails inside VS Code.
@@ -14,6 +16,17 @@ Plays a custom sound when a terminal command fails inside VS Code.
 
 The extension listens to terminal shell execution events.
 If an error keyword is detected in output, it plays the selected sound.
+
+
+## 📦 Installation
+
+1. Download the latest `.vsix` file from Releases.
+2. Open VS Code.
+3. Go to Extensions panel.
+4. Click ⋮ (three dots).
+5. Select "Install from VSIX".
+6. Choose the downloaded file.
+
 
 ## Settings
 
