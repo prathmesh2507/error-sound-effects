@@ -3,6 +3,10 @@
   "displayName": "Terminal Error Sound Effects",
   "description": "Plays selected sound when terminal command fails",
   "version": "0.0.1",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/prathmesh2507/error-sound-effects.git"
+},
   "engines": {
     "vscode": "^1.109.0"
   },
