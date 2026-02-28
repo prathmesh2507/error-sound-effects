@@ -51,25 +51,27 @@ export function activate(context: vscode.ExtensionContext) {
   );
 }
 
-function playSound(
-  context: vscode.ExtensionContext,
-  fileName: string,
-  volume: number,
-) {
-  const panel = vscode.window.createWebviewPanel(
-    "soundPlayer",
-    "",
-    vscode.ViewColumn.Beside,
-    { enableScripts: true },
-  );
+function playSound(context: vscode.ExtensionContext, fileName: string, volume: number) {
 
-  const soundPath = vscode.Uri.file(
-    path.join(context.extensionPath, "media", fileName),
-  );
+    const soundPath = vscode.Uri.joinPath(
+        context.extensionUri,
+        'media',
+        fileName
+    );
 
-  const soundUri = panel.webview.asWebviewUri(soundPath);
+    const panel = vscode.window.createWebviewPanel(
+        'soundPlayer',
+        '',
+        vscode.ViewColumn.Beside,
+        {
+            enableScripts: true,
+            localResourceRoots: [vscode.Uri.joinPath(context.extensionUri, 'media')]
+        }
+    );
 
-  panel.webview.html = `
+    const soundUri = panel.webview.asWebviewUri(soundPath);
+
+    panel.webview.html = `
         <!DOCTYPE html>
         <html>
         <body>
@@ -84,7 +86,7 @@ function playSound(
         </html>
     `;
 
-  setTimeout(() => panel.dispose(), 2000);
+    setTimeout(() => panel.dispose(), 2000);
 }
 
 export function deactivate() {}
