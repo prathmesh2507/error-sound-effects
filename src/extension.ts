@@ -3,6 +3,8 @@ import * as path from "path";
 
 let lastPlayed = 0;
 
+console.log("🔥 My Terminal Error Sound Extension Loaded");
+
 export function activate(context: vscode.ExtensionContext) {
   console.log("Terminal Sound Extension Activated 🚀");
 
@@ -86,3 +88,7 @@ function playSound(
 }
 
 export function deactivate() {}
+
+vscode.window.onDidStartTerminalShellExecution((event) => {
+    console.log("🔥 Terminal execution detected!");
+});
