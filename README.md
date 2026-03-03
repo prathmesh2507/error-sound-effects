@@ -4,7 +4,7 @@
 
 Plays a custom sound when a terminal command fails inside VS Code.
 
-## Features
+## Features:-
 
 - 🎧 Select custom sound from settings
 - 🔊 Volume control (0 – 1)
